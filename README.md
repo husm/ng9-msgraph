@@ -11,3 +11,12 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ```
 ng new ng9-client
 ```
+
+## Step 2: Install Angular Material
+>1. Use `ng add` to install Angular Material
+>2. Choose the prebuild theme `Deep Purple/Amber`
+>3. Set up global Angular Material typography styles `N`
+>4. Set up brower animations for Angular Material `Y`
+```
+ng add @angular/material
+```
