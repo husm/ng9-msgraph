@@ -53,7 +53,64 @@ ng add @angular/material
 >1. Import `MatToolbarModule`, `MatButtonModule`, `MatListModule` in `app.module.ts`
 >2. Change the application main template `app.component.html`, and use angular material to set the layout.
 
+# Step 6: Use MSAL library to login and logout
+>1. Install MSAL libraries
+>   ```
+>   npm install --save @azure/msal-angular msal
+>   ```
+
+>2. Import MSAL modules in `app.module.ts`
+>   ```javascript
+>     const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
+>
+>     ...
+>
+>     MsalModule.forRoot({
+>      auth: {
+>          clientId: '00000000-0000-0000-0000-00000000',
+>          authority: 'https://login.microsoftonline.com/common',
+>          redirectUri: 'http://localhost:4200/',
+>          postLogoutRedirectUri: 'http://localhost:4200/',
+>          navigateToLoginRequestUrl: true,
+>        },
+>        cache: {
+>          cacheLocation: 'localStorage',
+>          storeAuthStateInCookie: isIE, // set to true for IE 11
+>        },
+>      },
+>      {
+>        popUp: !isIE,
+>        consentScopes: [
+>          'user.read',
+>          'openid',
+>          'profile',
+>        ],
+>        unprotectedResources: [],
+>        protectedResourceMap: [
+>          ['https://graph.microsoft.com/v1.0/me', ['user.read']]
+>        ],
+>        extraQueryParameters: {}
+>      })
+>    ],
+>    providers: [
+>      {
+>        provide: HTTP_INTERCEPTORS,
+>        useClass: MsalInterceptor,
+>        multi: true
+>      }
+>    ],
+>   ```
+
+> <b>Tips:</b>  
+> MSAL informations can be found in Azure `App registrations`, you can refer this [blog](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app) on how to register an App.
+> ![MSAL - Azure App registrations](./docs/assets/msal-1.png)
+> ![MSAL - Azure App registrations](./docs/assets/msal-2.png)
+> ![MSAL - Azure App registrations](./docs/assets/msal-3.png)
+
+>3. Add the login and logout functions to the project
+
 
 # References
 - [Import fonts in an Angular App — THE EASY / RIGHT WAY!](https://medium.com/@aditya_tyagi/import-fonts-in-an-angular-app-the-easy-right-way-ae9e99cab551)
 - [Tutorial: Sign in users and call the Microsoft Graph API from an Angular single-page application](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-angular)
+- [Microsoft Authentication Library for Angular](https://www.npmjs.com/package/@azure/msal-angular)
