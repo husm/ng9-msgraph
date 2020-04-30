@@ -20,3 +20,29 @@ ng new ng9-client
 ```
 ng add @angular/material
 ```
+
+## Step 3: Host the font in local
+
+### Step 3.1: Use Google Roboto font
+>1. Download the Google Roboto font
+>2. Create the font folder `roboto` in `src/assets/fonts`
+>3. Create a file `_fonts.scss` in `src/assets/scss/modules` where we'll declare the @font-facevalues    
+![file structure](./docs/assets/font-2.png)  
+
+### Step 3.2: Use online font tool to generate the @font-face
+>1. Open [Transfonter](https://transfonter.org/) site  
+>2. Upload the fonts from the downloaded google fonts, use the default setting and download the coverted zip file.  
+>3. Unzip the file and extract the `.woff` and `.woff2` for all the fonts and copy these files to `src/assets/fonts/roboto`  
+![@font-face folder](./docs/assets/font-3.png)
+>4. Copy the code from `stylesheet.css` to `src/assets/scss/modules/_font.scss`
+![font file structure](./docs/assets/font-4.png)
+>5. Change the font url to current correct url in `_font.scss`
+![_font.scss code sample](./docs/assets/font-5.png)
+
+### Step 3.3: Use the font in the angular project
+>1. import the `_font.scss` file in the main stylesheet of the angular application `style.scss`
+
+
+
+# References
+- [Import fonts in an Angular App — THE EASY / RIGHT WAY!](https://medium.com/@aditya_tyagi/import-fonts-in-an-angular-app-the-easy-right-way-ae9e99cab551)
