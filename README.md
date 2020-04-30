@@ -42,6 +42,12 @@ ng add @angular/material
 ### Step 3.3: Use the font in the angular project
 >1. import the `_font.scss` file in the main stylesheet of the angular application `style.scss`
 
+# Step 4: Add two simple component and set the route
+> We will create two simple components, and use route to navigate through these two components.  
+>1. Create `Home` Component
+>2. Create `Profile` Component
+>3. Add the route config in `app-routing.module.ts`
+>4. Add route outlet in the app html template `app.component.html`, to navigate between the `Home` and `Profile` component.
 
 
 # References
