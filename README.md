@@ -49,6 +49,11 @@ ng add @angular/material
 >3. Add the route config in `app-routing.module.ts`
 >4. Add route outlet in the app html template `app.component.html`, to navigate between the `Home` and `Profile` component.
 
+# Step 5: Use angular material
+>1. Import `MatToolbarModule`, `MatButtonModule`, `MatListModule` in `app.module.ts`
+>2. Change the application main template `app.component.html`, and use angular material to set the layout.
+
 
 # References
 - [Import fonts in an Angular App — THE EASY / RIGHT WAY!](https://medium.com/@aditya_tyagi/import-fonts-in-an-angular-app-the-easy-right-way-ae9e99cab551)
+- [Tutorial: Sign in users and call the Microsoft Graph API from an Angular single-page application](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-angular)

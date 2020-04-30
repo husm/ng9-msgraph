@@ -1,8 +1,11 @@
-<div>
-  <a [routerLink]="['profile']">Profile</a>
-  <span>&nbsp;</span>
-  <a [routerLink]="['']">Home</a>
-</div>
+<mat-toolbar color="primary">
+  <a class="title" href="/">Home</a>
+  <div class="toolbar-spacer"></div>
+  <a mat-button [routerLink]="['profile']">Profile</a>
+
+  <button mat-raised-button>Login</button>
+  <button mat-raised-button>Logout</button>
+</mat-toolbar>
 <div class="container">
   <router-outlet></router-outlet>
 </div>
